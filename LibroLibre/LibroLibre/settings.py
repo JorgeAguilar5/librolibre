@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'libros',
     'usuarios',
+
+    'social.apps.django_app.default',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -126,3 +128,21 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR,"static"),)
 from django.core.urlresolvers import reverse_lazy
 
 LOGIN_REDIRECT_URL = reverse_lazy('libros:todos')
+
+AUTHENTICATION_BACKENDS = (
+    # Facebook
+    'social.backends.facebook.FacebookOAuth2',
+    # Django
+    'django.contrib.auth.backends.ModelBackend',
+)
+
+
+SOCIAL_AUTH_FACEBOOK_KEY = '1988514774707696'
+SOCIAL_AUTH_FACEBOOK_SECRET = '373a578a8fefc760aecdce02d2364795'
+
+SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
+
+SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {
+    'locale': 'ru_RU',
+    'fields': 'id, name, email, age_range'
+}
