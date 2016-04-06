@@ -1,0 +1,30 @@
+{%extends 'base.html'%}
+
+{% block content %}
+	<section class="section">
+		<article class="container">
+
+			<h1>Login</h1>
+
+	{%if form.errors%}
+		<p>
+			Tu usuario y contraseña no coinciden
+		</p>
+	{%else%}
+		<p>Entra al sistema:</p>
+	{%endif%}
+	<form action="{%url 'usuarios:login'%}" method="post">
+		{%csrf_token%}
+		{{form.as_p}}
+		<input type="hidden" name="next" value="{{next}}">
+		<input type="submit" value="Entrar">
+
+	</form>
+
+	<a class="btn waves-effect blue" href="#">Entra con Facebook Mijo</a>
+
+		</article>
+	</section>
+	
+
+{% endblock content %}

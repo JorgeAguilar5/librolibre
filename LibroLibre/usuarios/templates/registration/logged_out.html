@@ -1,0 +1,16 @@
+{%extends 'base.html'%}
+
+{% block content %}
+	
+	<section class="section">
+		<article class="container">
+
+			<h1>Tu sesión se ha cerrado</h1>
+			<p>entrar nuevamente <a href="{%url 'usuarios:login'%}">
+				login
+			</a></p>
+
+		</article>
+	</section>
+
+{% endblock content %}

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+{%extends 'base.html'%}
+{%load static%}
+
+{%block content%}
+
+	<h1>Todos los Libros</h1>
+
+	{% for libro in libros %}
+	<a href="{{libro.get_absolute_url}}">
+		<h2>{{libro.titulo}}</h2>
+	</a>
+	{%endfor%}
+
+	<h2>Nuevo Libro:</h2>
+	<form action="." method="post">
+		{{form.as_p}}
+		{% csrf_token %}
+		<p><input type="submit" value="Publicar"></p>
+	</form>
+
+{%endblock content%}
